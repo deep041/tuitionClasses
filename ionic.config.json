@@ -1,5 +1,7 @@
 {
-  "name": "tution-classes",
-  "integrations": {},
+  "name": "tuition-classes",
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }

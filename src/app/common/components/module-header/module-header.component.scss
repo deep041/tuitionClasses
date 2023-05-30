@@ -1,0 +1,30 @@
+.header {
+    background-color: #084C61;
+    color: #FFF;
+    text-align: center;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    position: relative;
+}
+
+.header.fixed {
+    position: fixed;
+    width: 100%;
+}
+
+.header .icon {
+    position: absolute;
+    font-size: 23px;
+    top: 12px;
+    left: 20px;
+    z-index: 10;
+}
+
+.header h2 {
+    margin: 0px;
+    padding: 15px 0px;
+    font-weight: bold;
+    font-size: 25px;
+    position: relative;
+    bottom: 2px;
+}

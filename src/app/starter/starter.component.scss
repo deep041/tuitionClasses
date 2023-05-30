@@ -1,0 +1,39 @@
+.starter-body .buttons {
+    margin-top: 20px;
+}
+
+.starter-body .buttons .top-buttons {
+    grid-gap: 10px;
+    align-content: space-evenly;
+    display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 15px;
+}
+
+.starter-body .buttons hr {
+    border-width: 1px;
+}
+
+.starter-body .buttons span {
+    color: #777777;
+    font-size: 12px;
+}
+
+.icon {
+    font-size: 110px;
+    color: #FFF;
+    margin-bottom: 20px;
+    animation-name: logoAnimation;
+    animation-duration: 2s;
+}
+
+@keyframes starter-bodyAnimation {
+    from {top: -100%;}
+    to {top: 0%;}
+}
+
+@keyframes logoAnimation {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(180deg);}
+}

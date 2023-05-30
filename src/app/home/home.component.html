@@ -1,0 +1,45 @@
+<div class="home">
+    <app-header></app-header>
+
+    <div class="modules">
+        <div class="module-list" (click)="goTo('home/attendance')">
+            <div class="icon">
+                <i class="fa-solid fa-calendar-days"></i>
+            </div>
+            Attendance
+        </div>
+        <div class="module-list" (click)="goTo('home/result')">
+            <div class="icon">
+                <i class="fa-solid fa-square-poll-vertical"></i>
+            </div>
+            Results
+        </div>
+        <div class="module-list" (click)="goTo('home/fees')">
+            <div class="icon">
+                <i class="fa-solid fa-indian-rupee-sign"></i>
+            </div>
+            Fees
+        </div>
+        <div class="module-list" (click)="goTo('home/kit')">
+            <div class="icon">
+                <i class="fa-sharp fa-solid fa-briefcase"></i>
+            </div>
+            Kit
+        </div>
+        <div class="module-list" (click)="goTo('home/material')">
+            <div class="icon">
+                <i class="fa-sharp fa-solid fa-newspaper"></i>
+            </div>
+            Material
+        </div>
+    </div>
+
+    <!-- <ng-container  *ngFor="let module of commonService.modules">
+        <div class="module-list" (click)="goTo(module.navigation)" *ngIf="module.isSelected">
+            <div class="icon">
+                <i class="{{module.icon}}"></i>
+            </div>
+            {{ module.name }}
+        </div>
+    </ng-container> -->
+</div>

@@ -1,0 +1,18 @@
+<div class="starter-body">
+    <div class="starter-header">
+        <div class="company-details">
+            <i class="fa-brands fa-slack icon"></i>
+            <div class="company-name">Chintan Classes</div>
+            <span>Lorem Ipsum is simply dummy text of the printing</span>
+        </div>
+    </div>
+    <div class="buttons">
+        <div class="top-buttons">
+            <app-button [title]="'Login'" (click)="goTo('login')"></app-button>
+            <app-button [title]="'New Admission'" [type]="'secondary'" (click)="goTo('admission')"></app-button>
+        </div>
+        <hr />
+        <span>*If you are new to Chintan Classes we recommend to watch introduction.</span>
+        <app-button [title]="'Introduction'" [type]="'grey'" (click)="goTo('intro')"></app-button>
+    </div>
+</div>

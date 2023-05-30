@@ -1,0 +1,50 @@
+.intro {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #FFF;
+    text-align: center;
+    color: #111;
+    overflow: scroll;
+}
+
+.intro-content {
+    padding: 0px 20px;
+    margin-top: 80px;
+}
+
+.accordion-header {
+    margin-top: 0px;
+}
+
+.starter-body .heading {
+    display: inline-block;
+    font-weight: bold;
+}
+
+.starter-body .video {
+    margin-top: 20px;
+}
+
+.starter-body .section {
+    text-align: left;
+}
+
+.starter-body .section h3 {
+    font-weight: bold;
+}
+
+.starter-body .section .facilities {
+    display: inline-block;
+    padding: 10px;
+    border: 1px solid #084C61;
+    margin: 5px;
+    border-radius: 20px;
+}
+
+.timings li {
+    list-style: circle;
+}
+
+.fees-emi li {
+    list-style: decimal;
+}

@@ -1,0 +1,32 @@
+.home {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #FFF;
+    color: #111;
+    padding: 0px;
+}
+
+.home .modules {
+    margin-top: 20px;
+    grid-gap: 10px;
+    align-content: space-evenly;
+    display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    padding: 15px;
+}
+
+.home .modules .module-list {
+    text-align: center;
+    font-size: 23px;
+    padding: 20px 10px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    background-color: #E8C547;
+    color: #30323D;
+    border-radius: 10px;
+}
+
+.home .modules .module-list .icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+}

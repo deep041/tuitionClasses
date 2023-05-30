@@ -1,0 +1,20 @@
+<div class="starter-body">
+    <div class="starter-header admission">
+        <div class="company-details">
+            <div class="company-name">New Admission</div>
+            <span>Welcome to Chintan Classes.</span>
+        </div>
+    </div>
+    <div class="form">
+        <form [formGroup]="admissionForm">
+            <app-select formControlName="class" [options]="classesOptions"></app-select>
+            <app-select formControlName="board" [options]="boardsOptions"></app-select>
+            <app-text formControlName="surname" [placeholder]="'Surname'"></app-text>
+            <app-text formControlName="firstName" [placeholder]="'First name'"></app-text>
+            <app-text formControlName="secondName" [placeholder]="'Second name'"></app-text>
+            <app-text formControlName="secondName" [type]="'date'"></app-text>
+
+            <app-button [title]="'Register'"></app-button>
+        </form>
+    </div>
+</div>

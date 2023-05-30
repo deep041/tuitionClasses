@@ -24,3 +24,92 @@
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
+
+// Module
+.module {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #FFF;
+}
+
+// List
+.list {
+    color: #111;
+    grid-gap: 10px;
+    align-content: space-evenly;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 20px 20px;
+    font-size: 20px;
+    border-bottom: 1px solid #777;
+}
+
+.list:last-child {
+    border: none;
+}
+
+.list .list-title {
+    font-weight: bold;
+}
+
+.list .list-detail {
+    text-align: center;
+}
+
+.list .list-detail i {
+    color: green;
+    margin-right: 5px;
+}
+
+.list .list-detail i.list-pending {
+    color: #E8C547;
+}
+
+// Common header
+.starter-header {
+    background-color: #084C61;
+    height: 60%;
+    position: relative;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    text-align: center;
+}
+
+.starter-header.admission {
+    height: 30%;
+}
+
+.starter-header.login {
+    height: 50%;
+}
+
+.starter-header .company-details {
+    position: absolute;
+    top: 50%;
+    transform: translate(0px, -50%);
+    width: 100%;
+}
+
+.starter-header .company-name { 
+    color: #FFF;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 40px;
+    width: 100%;
+}
+
+.starter-header .company-details span {
+    color: #F4F4F4;
+    font-size: 14px;
+}
+
+// Starter body
+.starter-body {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #FFF;
+    text-align: center;
+    color: #111;
+    overflow: scroll;
+}

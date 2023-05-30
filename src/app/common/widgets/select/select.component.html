@@ -1,0 +1,3 @@
+<select name="board" [(ngModel)]="value" (ngModelChange)="changeValue()">
+    <option *ngFor="let opt of options" [value]="opt.value" [disabled]="opt.isDisabled">{{ opt.title }}</option>
+</select>
