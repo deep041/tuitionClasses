@@ -1,0 +1,15 @@
+.section {
+    padding: 10px 15px;
+}
+
+.section .fees {
+    display: inline-block;
+    padding: 10px;
+    margin-right: 5px;
+    background-color: #E8C547;
+    border-radius: 10px;
+}
+
+.section .fees.discount {
+    background-color: #62BBC1;
+}

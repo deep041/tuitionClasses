@@ -17,6 +17,7 @@ export class TextComponent implements OnInit, ControlValueAccessor {
 
     @Input() placeholder!: string;
     @Input() type: string = 'text';
+    @Input() class: string = '';
 
     value = '';
     disabled = false;

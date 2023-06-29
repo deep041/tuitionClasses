@@ -1,3 +1,17 @@
 <div class="module">
     <app-module-header [title]="'Fees'"></app-module-header>
+
+    <div class="section">
+        <div class="fees"> Total Fees: {{ feesDetails?.totalFees }}</div>
+        <div class="fees discount"> Discount: {{ feesDetails?.discount }}</div>
+    </div>
+
+    <div class="list">
+        <div class="list-title"> Registration Fees </div>
+        <div class="list-detail">{{feesDetails?.registrationFee}}</div>
+    </div>
+    <div class="list" *ngFor="let fee of feesDetails?.fees; let i = index">
+        <div class="list-title">{{ 'Part ' + (i + 1)  }}</div>
+        <div class="list-detail">{{fee.fee}}</div>
+    </div>
 </div>

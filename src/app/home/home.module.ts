@@ -10,6 +10,11 @@ import { FeesComponent } from './fees/fees.component';
 import { KitComponent } from './kit/kit.component';
 import { MaterialComponent } from './material/material.component';
 import { CommonSharedModule } from '../common/common.module';
+import { SettingsComponent } from './settings/settings.component';
+import { StudentsComponent } from './students/students.component';
+import { AddAttendanceComponent } from './add-attendance/add-attendance.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AddResultComponent } from './add-result/add-result.component';
 
 const components = [
     HomeComponent,
@@ -18,7 +23,11 @@ const components = [
     AttendanceComponent,
     FeesComponent,
     KitComponent,
-    MaterialComponent
+    MaterialComponent,
+    SettingsComponent,
+    StudentsComponent,
+    AddAttendanceComponent,
+    AddResultComponent
 ]
 
 @NgModule({
@@ -28,7 +37,9 @@ const components = [
     imports: [
         CommonModule,
         HomeRoutingModule,
-        CommonSharedModule
+        CommonSharedModule,
+        FormsModule,
+        ReactiveFormsModule
     ]
 })
 export class HomeModule { }

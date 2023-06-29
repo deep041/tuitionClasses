@@ -1,0 +1,24 @@
+<div class="module">
+    <app-module-header [title]="'Add Attendance'"></app-module-header>
+
+    <div class="form-row">
+        <form [formGroup]="attendanceForm">
+            <app-select formControlName="class" [options]="commonService.classesOptions" (change)="getStudents()"></app-select>
+        </form>
+    </div>
+
+    <div class="section">
+        <div class="student" *ngFor="let student of studentList">
+            <div class="name">
+                {{ student.firstName + ' ' + student.surname }}
+            </div>
+            <div class="checkbox">
+                <input type="checkbox" [(ngModel)]="student.isSelected" />
+            </div>
+        </div>
+
+        <div class="button-area">
+            <app-button [title]="'Add Attendance'" (click)="saveAttendance()"></app-button>
+        </div>
+    </div>
+</div>

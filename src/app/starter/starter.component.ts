@@ -12,13 +12,7 @@ export class StarterComponent implements OnInit {
 
     constructor(private router: Router, private httpService: HttpService, private commonService: CommonService) { }
 
-    ngOnInit() { 
-        this.httpService.appData().subscribe((data: any) => {
-            if (data) {
-                console.log(data);
-                this.commonService.modules = data.data.modules;
-            }
-        });
+    ngOnInit() {
     }
 
     goTo(page: string):void {

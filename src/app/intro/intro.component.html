@@ -7,7 +7,7 @@
         </div>
 
         <div class="section">
-            <h3>Our Facilities</h3>
+            <!-- <h3>Our Facilities</h3>
 
             <div class="facilities">
                 <span>Free Material</span>
@@ -17,10 +17,16 @@
             </div>
             <div class="facilities">
                 <span>AC Rooms</span>
-            </div>
+            </div> -->
+            <form [formGroup]="inquiryForm">
+                <app-select formControlName="class" [options]="commonService.classesOptions"></app-select>
+                <app-select formControlName="board" [options]="commonService.boardsOptions"></app-select>
+
+                <app-button [title]="'Inquiry'" (click)="inquiry()"></app-button>
+            </form>
         </div>
 
-        <div class="section">
+        <!-- <div class="section">
             <h3>Our Classes</h3>
 
             <div class="accordion" id="accordionExample">
@@ -137,6 +143,6 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </div>

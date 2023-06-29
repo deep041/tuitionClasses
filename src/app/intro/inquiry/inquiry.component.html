@@ -1,0 +1,22 @@
+<div class="starter-body">
+    <app-module-header [title]="'Std. ' + displayData.class + ' (' + displayData.board + ')'"></app-module-header>
+
+    <div class="section">
+        <div class="section-data" *ngFor="let data of displayData.details">
+            <h2>{{data.title}}</h2>
+            <div>
+                <ng-container *ngIf="isArray(data.value)">
+                    <div class="section-data-details" *ngFor="let arrayData of data?.value">{{ arrayData }}</div>
+                </ng-container>
+                <ng-container *ngIf="!isArray(data.value)">
+                    <div>{{ data.value }} <span *ngIf="data.extraText">{{data.extraText}}</span></div>
+                </ng-container>
+                <ng-container *ngIf="data.notes">
+                    <ul>
+                        <li *ngFor="let note of data.notes">{{note}}</li>
+                    </ul>
+                </ng-container>
+            </div>
+          </div>
+    </div>
+</div>

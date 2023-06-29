@@ -9,12 +9,30 @@
         <form [formGroup]="admissionForm">
             <app-select formControlName="class" [options]="classesOptions"></app-select>
             <app-select formControlName="board" [options]="boardsOptions"></app-select>
+
             <app-text formControlName="surname" [placeholder]="'Surname'"></app-text>
             <app-text formControlName="firstName" [placeholder]="'First name'"></app-text>
             <app-text formControlName="secondName" [placeholder]="'Second name'"></app-text>
-            <app-text formControlName="secondName" [type]="'date'"></app-text>
+            <app-text formControlName="dob" [type]="'date'"></app-text>
+            <app-select formControlName="gender" [options]="genderOptions"></app-select>
+            <app-textarea formControlName="address" [placeholder]="'Address'"></app-textarea>
 
-            <app-button [title]="'Register'"></app-button>
+            <app-text formControlName="fatherNumber" [placeholder]="'Father\'s contact number'"></app-text>
+            <app-text formControlName="motherNumber" [placeholder]="'Mother\'s contact number'"></app-text>
+            <app-text formControlName="otherNumber" [placeholder]="'Other contact number'"></app-text>
+            <app-text formControlName="whatsAppNumber" [placeholder]="'WhatsApp Number'"></app-text>
+
+            <app-text formControlName="email" [placeholder]="'Email id'"></app-text>
+
+            <app-text formControlName="parentsOccupation" [placeholder]="'Parent\'s / Guardian\'s Occupation'"></app-text>
+            <app-textarea formControlName="parentsOccupationAddress" [placeholder]="'Parent\'s / Guardian\'s Office address'"></app-textarea>
+
+            <app-text formControlName="presentSchool" [placeholder]="'Present school'"></app-text>
+            <app-text formControlName="previousResult" [placeholder]="'Result of previous year in %'"></app-text>
+
+            <app-text formControlName="password" [placeholder]="'Password'"></app-text>
+
+            <app-button [title]="'Proceed to Pay'" (click)="register()"></app-button>
         </form>
     </div>
 </div>

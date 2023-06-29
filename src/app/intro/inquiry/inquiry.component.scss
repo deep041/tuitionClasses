@@ -1,0 +1,39 @@
+.section {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.section-data {
+    background-color: antiquewhite;
+    padding: 15px;
+    margin-top: 25px;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.section-data .section-data-details {
+    padding: 8px;
+    border: 1px solid;
+    border-radius: 10px;
+    margin-right: 10px;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.section-data h2 {
+    margin-top: 0px;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.section-data span {
+    font-size: 12px;
+    color: #777;
+}
+
+.section-data ul {
+    font-size: 12px;
+    margin-top: 10px;
+}

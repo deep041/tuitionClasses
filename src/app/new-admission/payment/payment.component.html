@@ -1,0 +1,32 @@
+<div class="starter-body">
+    <app-module-header [title]="'Payment'"></app-module-header>
+
+    <form [formGroup]="paymentForm">
+        <div class="section">
+            <div class="fees-input">
+                <div class="title">Registration Fee</div>
+                <app-text [placeholder]="'Registration Fees'" [class]="'payment-input'" formControlName="registrationFee"></app-text>
+            </div>
+
+            <div class="fees-input">
+                <div class="title">Discount</div>
+                <app-text [placeholder]="'Discount'" [class]="'payment-input'" formControlName="discount"></app-text>
+            </div>
+            
+            <ng-container formArrayName="fees">
+                <div class="fees-input" *ngFor="let fee of getControls(); let i = index;">
+                    <ng-container [formGroupName]="i">
+                        <div class="heading">
+                            <div class="title">Fee Part-{{i + 1}}</div> <i *ngIf="i !== 0" (click)="removePart()" class="fa-solid fa-trash"></i>
+                        </div>
+                        <app-text [placeholder]="'Fees Part-' + (i + 1)" [class]="'payment-input'" formControlName="fee"></app-text>
+                    </ng-container>
+                </div>
+            </ng-container>
+            <app-button [title]="'Add New Part'" [type]="'fit secondary'" (click)="addNewPart()"></app-button>
+
+            <app-button [title]="'Register'" (click)="saveFees()"></app-button>
+        </div>
+    </form>
+
+</div>

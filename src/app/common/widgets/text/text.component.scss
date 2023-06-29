@@ -9,3 +9,11 @@ input {
     border-radius: 5px;
     color: #333;
 }
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(0.8);
+}
+
+.payment-input {
+    margin-top: 5px;
+}

@@ -1,0 +1,38 @@
+.form-row {
+    padding: 0px 20px;
+}
+
+.section {
+    padding: 10px 20px;
+    height: 100%;
+}
+
+.section .student {
+    padding: 10px 10px;
+    border: 1px solid #333;
+    margin-bottom: 10px;
+}
+
+.section .student .name {
+    font-weight: bold;
+    display: inline-block;
+}
+
+.section .button-area {
+    position: fixed;
+    bottom: 20px;
+    width: 100%;
+    left: 0px;
+    padding: 0px 20px;
+}
+
+.student .input-text {
+    display: inline-block;
+    float: right;
+    text-align: right;
+}
+
+input {
+    background-color: #FFF;
+    width: 30%;
+}

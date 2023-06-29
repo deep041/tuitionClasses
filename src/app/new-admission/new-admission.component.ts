@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { CommonService } from '../common/services/common/common.service';
+import { HttpService } from '../common/services/http/http.service';
 
 @Component({
     selector: 'app-new-admission',
@@ -26,8 +28,13 @@ export class NewAdmissionComponent implements OnInit {
         {title: '12-A', value: '12-A'},
         {title: '12-B', value: '12-B'},
     ];
+    genderOptions: any = [
+        {title: 'Select your gender', value: '', isSelected: true, isDisabled: true}, 
+        {title: 'Male', value: 'Male'}, 
+        {title: 'Female', value: 'Female'}
+    ];
 
-    constructor() { }
+    constructor(private httpService: HttpService, public commonService: CommonService) { }
 
     ngOnInit() { 
         this.createForm();
@@ -35,12 +42,40 @@ export class NewAdmissionComponent implements OnInit {
 
     createForm(): void {
         this.admissionForm = new FormGroup({
-            surname: new FormControl(''),
-            firstName: new FormControl(''),
-            secondName: new FormControl(''),
-            board: new FormControl(''),
-            class: new FormControl('')
+            surname: new FormControl('', [Validators.required]),
+            firstName: new FormControl('', [Validators.required]),
+            secondName: new FormControl('', [Validators.required]),
+            dob: new FormControl('', [Validators.required]),
+            board: new FormControl('', [Validators.required]),
+            class: new FormControl('', [Validators.required]),
+            gender: new FormControl('', [Validators.required]),
+            address: new FormControl('', [Validators.required]),
+            fatherNumber: new FormControl(''),
+            motherNumber: new FormControl(''),
+            otherNumber: new FormControl(''),
+            whatsAppNumber: new FormControl('', [Validators.required]),
+            email: new FormControl('', [Validators.required]),
+            parentsOccupation: new FormControl('', [Validators.required]),
+            parentsOccupationAddress: new FormControl('', [Validators.required]),
+            presentSchool: new FormControl('', [Validators.required]),
+            previousResult: new FormControl('', [Validators.required]),
+            password: new FormControl('', [Validators.required])
         });
+    }
+
+    register(): void {
+        if (this.admissionForm.valid) {
+            this.commonService.newRegisterStudentData = this.admissionForm.value;
+            this.commonService.redirect('admission/payment');
+            // this.httpService.register(this.admissionForm.value).subscribe((data: any) => {
+            //     if (data.status === 200) {
+            //         console.log(data);
+            //         this.commonService.showToaster(data.message);
+            //     } else {
+            //         this.commonService.showToaster(data.message);
+            //     }
+            // });
+        }
     }
 
 }

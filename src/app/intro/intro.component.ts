@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpService } from '../common/services/http/http.service';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { SelectOption } from '../common/interface/common.interface';
+import { CommonService } from '../common/services/common/common.service';
 
 @Component({
     selector: 'app-intro',
@@ -8,13 +11,27 @@ import { HttpService } from '../common/services/http/http.service';
 })
 export class IntroComponent implements OnInit {
 
-    constructor() { }
+    inquiryForm!: FormGroup;
+
+    constructor(private router: Router, public commonService: CommonService) { }
 
     ngOnInit() {
+        this.createForm();
     }
 
     back(): void {
         window.history.back();
+    }
+
+    createForm(): void {
+        this.inquiryForm = new FormGroup({
+            class: new FormControl(''),
+            board: new FormControl('')
+        })
+    }
+
+    inquiry(): void {
+        this.router.navigate(['/intro/inquiry'], {queryParams: { ...this.inquiryForm.value }});
     }
 
 }

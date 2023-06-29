@@ -7,12 +7,16 @@ import { ModuleHeaderComponent } from './components/module-header/module-header.
 import { ButtonComponent } from './widgets/button/button.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HeaderInterceptor } from './interceptor/header-interceptor.interceptor';
+import { TextareaComponent } from './widgets/textarea/textarea.component';
+import { ToasterComponent } from './widgets/toaster/toaster.component';
 
 const components = [
     TextComponent,
     SelectComponent,
     ModuleHeaderComponent,
-    ButtonComponent
+    ButtonComponent,
+    TextareaComponent,
+    ToasterComponent
 ]
 
 @NgModule({
