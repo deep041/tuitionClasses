@@ -1,17 +1,22 @@
 <div class="header">
     <div class="menu">
         <div class="left">
-            <div class="icon">
+            <h2>Hi<span *ngIf="commonService?.user?.firstName">, {{ commonService?.user?.firstName }}</span></h2>
+            <!-- <div class="icon">
                 <i class="fa-solid fa-bars"></i>
-            </div>
+            </div> -->
         </div>
         <div class="right">
-            <h2>Hi, <span>{{ commonService?.user?.firstName }}</span></h2>
+            <!-- <h2>Hi<span *ngIf="commonService?.user?.firstName">, {{ commonService?.user?.firstName }}</span></h2> -->
+            <div class="icon">
+                <!-- <i class="fa-solid fa-bars"></i> -->
+                <i class="fa-solid fa-right-from-bracket" (click)="logout()"></i>
+            </div>
         </div>
     </div>
 
     <div class="details">
-        <h2>Welcome to Chintan Classes</h2>
-        <p>Lorem ipsum</p>
+        <h2>Welcome to Dr. Kirti Classes</h2>
+        <p>Work For Your Aim</p>
     </div>
 </div>

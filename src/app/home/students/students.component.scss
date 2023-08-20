@@ -8,3 +8,51 @@
     margin-bottom: 10px;
     border-radius: 5px;
 }
+
+.students .student.isSelected {
+    border-bottom: none;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    margin-bottom: 0px;
+}
+
+.students .student-details {
+    padding: 15px 10px;
+    margin-bottom: 15px;
+    border: 0.5pt solid #777;
+    border-top: none;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding-top: 0px;
+}
+
+.icons {
+    text-align: center;
+}
+
+.icons .icon {
+    display: inline-block;
+    padding: 5px 10px;
+    color: #FFF;
+    border-radius: 50%;
+    margin: 0px 10px;
+}
+
+.icons .icon.wa {
+    font-size: 19px;
+    background-color: #008000ab;
+}
+
+.icons .icon.phone {
+    padding: 7px 11px;   
+    background-color: #0000ffab;
+}
+
+.icons .icon.phone i {
+    font-size: 14px;
+}
+
+.icons .icon.fullscreen {
+    font-size: 19px;
+    background-color: #a52a2aab;
+}

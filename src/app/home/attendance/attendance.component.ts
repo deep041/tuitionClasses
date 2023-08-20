@@ -25,7 +25,7 @@ export class AttendanceComponent implements OnInit {
                 this.displayAttendance = response.data;
                 console.log('response response', this.displayAttendance);
             }
-        })
+        });
     }
 
 }

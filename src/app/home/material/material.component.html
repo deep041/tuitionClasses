@@ -1,3 +1,12 @@
 <div class="module">
     <app-module-header [title]="'Material'"></app-module-header>
+
+    <div class="list" *ngFor="let material of materialData">
+        <div class="list-title">{{ material.subject }}</div>
+        <div class="list-detail">
+            <i class="fa-solid fa-circle-check" *ngIf="material.status"></i>
+            <i class="fa-solid fa-arrows-rotate list-pending" *ngIf="!material.status"></i>
+            {{ material.status ? 'Received' : 'Pending'}}
+        </div>
+    </div>
 </div>

@@ -13,7 +13,7 @@
                     <div id="collapseAttendance{{i}}" class="accordion-collapse collapse" [attr.aria-labelledby]="'attendance' + i" data-bs-parent="#accordionAttendance">
                         <div class="accordion-body">
                             <div class="list" *ngFor="let data of attendance.attendance">
-                                <div class="list-title">{{ data.date }}</div>
+                                <div class="list-title">{{ data.date | date }}</div>
                                 <div class="list-detail">{{ data.status ? 'Present' : 'Absent' }}</div>
                             </div>                            
                         </div>

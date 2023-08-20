@@ -13,10 +13,19 @@ export class StarterComponent implements OnInit {
     constructor(private router: Router, private httpService: HttpService, private commonService: CommonService) { }
 
     ngOnInit() {
+        this.getClasses();
     }
 
     goTo(page: string):void {
         this.router.navigate([page]);
+    }
+
+    getClasses(): void {
+        this.httpService.getClasses().subscribe((data: any) => {
+            if (data) {
+                this.commonService.classesDetails = data.data;
+            }
+        });
     }
 
 }

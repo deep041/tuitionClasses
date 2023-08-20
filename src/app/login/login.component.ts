@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { StudentResponse } from '../common/interface/response.interface';
@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
     }
 
     goTo(): void {
-        this.router.navigate(['/home']);
+        this.router.navigate(['home', { user: this.commonService.user }]);
     }
 
     createForm(): void {

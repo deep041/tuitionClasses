@@ -1,10 +1,11 @@
 <div class="module">
-    <app-module-header [title]="'Add Attendance'"></app-module-header>
+    <app-module-header [title]="'Add Material Details'"></app-module-header>
 
     <div class="form-row">
-        <form [formGroup]="attendanceForm">
+        <form [formGroup]="materialForm">
             <app-select formControlName="class" [options]="commonService.classesOptions" (change)="getBatches()"></app-select>
-            <app-select formControlName="batch" [options]="batchOptions" (change)="getStudents()"></app-select>
+            <app-select formControlName="batch" [options]="batchOptions"></app-select>
+            <app-select formControlName="subject" [options]="subjectOptions" (change)="getStudents()"></app-select>
         </form>
     </div>
 
@@ -19,7 +20,7 @@
         </div>
 
         <div class="button-area">
-            <app-button [title]="'Add Attendance'" (click)="saveAttendance()"></app-button>
+            <app-button [title]="'Save Material'" (click)="saveMaterial()"></app-button>
         </div>
     </div>
 </div>

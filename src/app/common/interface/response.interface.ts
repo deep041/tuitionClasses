@@ -1,7 +1,8 @@
 import { AppData } from "./app-data.interface"
 import { Attendance, GroupedAttendance } from "./attendance.interface"
 import { Fees } from "./fees.interface"
-import { Student } from "./student.interface"
+import { GroupedResult, Result } from "./result.interface"
+import { Student, StudentAndClassGrouped, StudentAttendance } from "./student.interface"
 
 export interface StudentResponse {
     message: string,
@@ -13,6 +14,12 @@ export interface ClassWiseStudentResponse {
     message: string,
     status: number,
     data: Student[]
+}
+
+export interface ClassWiseStudentForAttendanceResponse {
+    message: string,
+    status: number,
+    data: StudentAttendance[]
 }
 
 export interface AddAttendanceResponse {
@@ -36,11 +43,23 @@ export interface FeesResponse {
 export interface AllStudentResponse {
     message: string,
     status: number,
-    data: Student[]
+    data: StudentAndClassGrouped[]
 }
 
 export interface AppDataResponse {
     message: string,
     status: number,
     data: AppData
+}
+
+export interface AddResultResponse {
+    message: string,
+    status: number,
+    data: Result[]
+}
+
+export interface GroupedResultResponse {
+    message: string,
+    status: number,
+    data: GroupedResult[]
 }

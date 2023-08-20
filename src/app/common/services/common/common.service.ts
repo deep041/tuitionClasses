@@ -15,6 +15,8 @@ export class CommonService {
     modules: any;
     user!: Student;
     newRegisterStudentData!: Student;
+    classesDetails: any;
+    selectedStudentDetails!: Student;
 
     months: Array<Month> = [
         { id: 1, month: 'January' },
@@ -225,6 +227,16 @@ export class CommonService {
         fees: 70000,
         registrationFees: 30000 }
     ];
+
+    subjects: any = [
+        { name: 'Maths', value: 'Maths', stander: [] },
+        { name: 'Science', value: 'Science' },
+        { name: 'English', value: 'English' },
+        { name: 'SS', value: 'SS' },
+        { name: 'Physics', value: 'Physics' },
+        { name: 'Chemistry', value: 'Chemistry' },
+        { name: 'Biology', value: 'Biology' }
+    ]
     
 
     constructor(private router: Router, private httpService: HttpService) { }
@@ -252,11 +264,16 @@ export class CommonService {
         this.httpService.getUserData(this.getLocalStorageData('id')).subscribe((data: StudentResponse) => {
             if (data) {
                 this.user = data.data;
+                console.log('user', this.user)
             }
         });
     }
 
     getMonth(id: number): string {
         return this.months.filter((data: Month) => data.id === id)[0].month;
+    }
+
+    clearLocalStorage(): void {
+        localStorage.clear();
     }
 }

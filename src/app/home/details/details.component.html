@@ -1,0 +1,39 @@
+<div class="module">
+    <app-module-header [title]="'Details'"></app-module-header>
+
+    <div class="user-icon"><i class="fa-solid fa-user"></i></div>
+
+    <div class="list">
+        <div class="list-title">Name</div>
+        <div class="list-detail">{{ commonService.user?.firstName + ' ' + commonService.user?.secondName + ' ' + commonService.user?.surname }}</div>
+    </div>
+    <div class="list">
+        <div class="list-title">Class</div>
+        <div class="list-detail"> {{ commonService.user?.class }} </div>
+    </div>
+    <div class="list">
+        <div class="list-title">Board</div>
+        <div class="list-detail"> {{ commonService.user?.board }} </div>
+    </div>
+    <div class="list">
+        <div class="list-title">Batch</div>
+        <div class="list-detail"> {{ commonService.user?.batch }} </div>
+    </div>
+    <div class="list">
+        <div class="list-title">Father's Number</div>
+        <div class="list-detail"> {{ commonService.user?.fatherNumber }} </div>
+    </div>
+    <div class="list">
+        <div class="list-title">Mother's Number</div>
+        <div class="list-detail"> {{ commonService.user?.motherNumber }} </div>
+    </div>
+    <div class="list">
+        <div class="list-title">WhatsApp Number</div>
+        <div class="list-detail"> {{ commonService.user?.whatsAppNumber }} </div>
+    </div>
+    <div class="list">
+        <div class="list-title">Date of Birth</div>
+        <div class="list-detail"> {{ commonService.user?.dob | date }} </div>
+    </div>
+    
+</div>

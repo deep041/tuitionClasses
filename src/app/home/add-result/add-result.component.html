@@ -3,7 +3,9 @@
 
   <div class="form-row">
       <form [formGroup]="attendanceForm">
-          <app-select formControlName="class" [options]="commonService.classesOptions" (change)="getStudents()"></app-select>
+          <app-select formControlName="class" [options]="commonService.classesOptions" (change)="getBatches()"></app-select>
+          <app-select formControlName="batch" [options]="batchOptions" (change)="getStudents()"></app-select>
+          <app-select formControlName="subject" [options]="subjectOptions"></app-select>
           <app-text formControlName="totalMarks" [type]="'number'" [placeholder]="'Total Marks'"></app-text>
       </form>
   </div>
@@ -19,7 +21,7 @@
       </div>
 
       <div class="button-area">
-          <app-button [title]="'Add Attendance'" (click)="saveAttendance()"></app-button>
+          <app-button [title]="'Add Result'" (click)="saveResult()"></app-button>
       </div>
   </div>
 </div>
