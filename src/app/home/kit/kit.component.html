@@ -1,12 +1,12 @@
 <div class="module">
     <app-module-header [title]="'Kit'"></app-module-header>
 
-    <div class="list">
-        <div class="list-title">T-shirt</div>
-        <div class="list-detail"><i class="fa-solid fa-circle-check"></i>Received</div>
-    </div>
-    <div class="list">
-        <div class="list-title">Bag</div>
-        <div class="list-detail"><i class="fa-solid fa-arrows-rotate list-pending"></i>Pending</div>
+    <div class="list" *ngFor="let kit of kitData">
+        <div class="list-title">{{ kit.kitType }}</div>
+        <div class="list-detail">
+            <i class="fa-solid fa-circle-check" *ngIf="kit.status"></i>
+            <i class="fa-solid fa-arrows-rotate list-pending" *ngIf="!kit.status"></i>
+            {{ kit.status ? 'Received' : 'Pending'}}
+        </div>
     </div>
 </div>

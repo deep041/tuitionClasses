@@ -7,13 +7,14 @@
     </div>
     <div class="form">
         <form [formGroup]="admissionForm">
-            <app-select formControlName="class" [options]="classesOptions"></app-select>
+            <app-select formControlName="class" [options]="classesOptions" (click)="getBatches()"></app-select>
             <app-select formControlName="board" [options]="boardsOptions"></app-select>
+            <app-select formControlName="batch" [options]="batchOptions"></app-select>
 
             <app-text formControlName="surname" [placeholder]="'Surname'"></app-text>
             <app-text formControlName="firstName" [placeholder]="'First name'"></app-text>
             <app-text formControlName="secondName" [placeholder]="'Second name'"></app-text>
-            <app-text formControlName="dob" [type]="'date'"></app-text>
+            <app-text formControlName="dob" [type]="dobType" [id]="'dob'" [placeholder]="'Date of Birth'" (click)="dobClick()"></app-text>
             <app-select formControlName="gender" [options]="genderOptions"></app-select>
             <app-textarea formControlName="address" [placeholder]="'Address'"></app-textarea>
 

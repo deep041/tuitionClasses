@@ -1,0 +1,33 @@
+.module {
+    overflow-y: auto;
+}
+
+.user-icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 15px auto;
+    position: relative;
+    border: 1px solid #333;
+}
+
+.user-icon i {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 70px;
+}
+
+h2.accordion-header {
+    margin-top: 0px;
+}
+
+.accordion-container {
+    padding: 10px;
+}
+
+.accordion-item {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

@@ -1,3 +1,5 @@
+import { Attendance } from "./attendance.interface"
+
 export interface Student {
     surname: string,
     firstName: string,
@@ -21,5 +23,40 @@ export interface Student {
     isAdmin: boolean,
     _id: string,
     isSelected: boolean,
-    marks: string
+    marks: string,
+    batch: string,
+    isShow?: boolean
+}
+
+export interface StudentAttendance {
+    surname: string,
+    firstName: string,
+    secondName: string,
+    dob: Date,
+    board: string,
+    class: string,
+    gender: string,
+    address: string,
+    fatherNumber: number,
+    motherNumber: number,
+    otherNumber: number,
+    whatsAppNumber: number,
+    email: string,
+    parentsOccupation: string,
+    parentsOccupationAddress: string,
+    presentSchool: string,
+    previousResult: string,
+    password: string,
+    token?: string,
+    isAdmin: boolean,
+    _id: string,
+    isSelected: boolean,
+    marks: string,
+    batch: string,
+    result: Attendance[]
+}
+
+export interface StudentAndClassGrouped {
+    _id: string,
+    students: Student[]
 }

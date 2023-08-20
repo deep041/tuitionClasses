@@ -15,6 +15,10 @@ import { StudentsComponent } from './students/students.component';
 import { AddAttendanceComponent } from './add-attendance/add-attendance.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddResultComponent } from './add-result/add-result.component';
+import { DetailsComponent } from './details/details.component';
+import { StudentDetailsComponent } from './students/student-details/student-details.component';
+import { AddKitDetailsComponent } from './add-kit-details/add-kit-details.component';
+import { AddMaterialDetailsComponent } from './add-material-details/add-material-details.component';
 
 const components = [
     HomeComponent,
@@ -27,7 +31,11 @@ const components = [
     SettingsComponent,
     StudentsComponent,
     AddAttendanceComponent,
-    AddResultComponent
+    AddResultComponent,
+    DetailsComponent,
+    StudentDetailsComponent,
+    AddKitDetailsComponent,
+    AddMaterialDetailsComponent
 ]
 
 @NgModule({

@@ -5,6 +5,8 @@ import { FeesResponse, StudentResponse } from 'src/app/common/interface/response
 import { CommonService } from 'src/app/common/services/common/common.service';
 import { HttpService } from 'src/app/common/services/http/http.service';
 
+declare var Razorpay: any;
+
 export interface FeesDetails {
     fees: number,
     registrationFees: number
@@ -22,6 +24,18 @@ export class PaymentComponent implements OnInit {
         fees: 0,
         registrationFees: 0
     };
+
+    razorPayOptions = {
+        "key": '',
+        "amount": 0,
+        "currency": "INR",
+        "name": "",
+        "description": "My Payment",
+        "order_id": "",
+        "handler": (res: any) => {
+            console.log(res);
+        }
+    }
 
     constructor(private fb: FormBuilder, private httpService: HttpService, private commonService: CommonService) { }
 
@@ -91,7 +105,6 @@ export class PaymentComponent implements OnInit {
     }
 
     saveFees(): void {
-
         this.httpService.register(this.commonService.newRegisterStudentData).subscribe((data: StudentResponse) => {
             if (data.status === 200) {
                 console.log(data);
@@ -106,7 +119,8 @@ export class PaymentComponent implements OnInit {
 
                 this.httpService.addFees(payload).subscribe((feesData: FeesResponse) => {
                     if (feesData.status === 200) {
-                        this.commonService.showToaster(data.message);     
+                        this.commonService.showToaster(data.message);   
+                        this.commonService.redirect('login');  
                     }
                 });
         
@@ -116,7 +130,56 @@ export class PaymentComponent implements OnInit {
                 this.commonService.showToaster(data.message);
             }
         });
+    }
 
+    razorpayPayment(): void {
+        this.httpService.razorPayPayment({amount: this.fees.registrationFees}).subscribe((data: any) => {
+            if (data) {
+                this.razorPayOptions.key = data.key;
+                this.razorPayOptions.amount = data.data.amount;
+                this.razorPayOptions.name = 'Chintan Classes';
+                this.razorPayOptions.order_id = data.data.id;
+                this.razorPayOptions.handler = this.razorPayHandler.bind(this)
+                let rzpl = new Razorpay(this.razorPayOptions);
+                rzpl.open();
+                console.log('opened');
+            }
+        });
+    }
 
+    razorPayHandler(response: any): void {
+        console.log('response', response);
+        let razorpayData = {
+            razorpay_order_id: response.razorpay_order_id,
+            razorpay_payment_id: response.razorpay_payment_id,
+            razorpay_signature: response.razorpay_signature
+        }
+
+        this.httpService.register(this.commonService.newRegisterStudentData).subscribe((data: StudentResponse) => {
+            if (data.status === 200) {
+                console.log(data);
+                let payload = {
+                    studentId: data.data._id,
+                    createdAt: new Date(),
+                    updatedAt: new Date(),
+                    totalFees: this.fees.fees,
+                    type: 'Registration Fee',
+                    isPaid: true,
+                    ...razorpayData
+                }
+
+                this.httpService.addFees(payload).subscribe((feesData: FeesResponse) => {
+                    if (feesData.status === 200) {
+                        this.commonService.showToaster(data.message);   
+                        this.commonService.redirect('login');  
+                    }
+                });
+        
+                console.log('payload', JSON.stringify(payload));
+                // this.commonService.showToaster(data.message);
+            } else {
+                this.commonService.showToaster(data.message);
+            }
+        });
     }
 }

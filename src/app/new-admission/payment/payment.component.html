@@ -3,12 +3,12 @@
 
     <form [formGroup]="paymentForm">
         <div class="section">
-            <div class="fees-input">
+            <!-- <div class="fees-input">
                 <div class="title">Registration Fee</div>
                 <app-text [placeholder]="'Registration Fees'" [class]="'payment-input'" formControlName="registrationFee"></app-text>
-            </div>
+            </div> -->
 
-            <div class="fees-input">
+            <!-- <div class="fees-input">
                 <div class="title">Discount</div>
                 <app-text [placeholder]="'Discount'" [class]="'payment-input'" formControlName="discount"></app-text>
             </div>
@@ -25,7 +25,15 @@
             </ng-container>
             <app-button [title]="'Add New Part'" [type]="'fit secondary'" (click)="addNewPart()"></app-button>
 
-            <app-button [title]="'Register'" (click)="saveFees()"></app-button>
+            <app-button [title]="'Register'" (click)="saveFees()"></app-button> -->
+
+            <div class="fees-input">
+                <div class="title">
+                    You have to pay {{ fees.registrationFees }} registration fee to admission.
+                </div>
+            </div>
+
+            <app-button [title]="'Pay Fees Online'" (click)="razorpayPayment()"></app-button>
         </div>
     </form>
 

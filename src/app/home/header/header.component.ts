@@ -10,6 +10,12 @@ export class HeaderComponent implements OnInit {
 
     constructor(public commonService: CommonService) { }
 
-    ngOnInit() { }
+    ngOnInit() { 
+    }
+
+    logout(): void {
+        this.commonService.clearLocalStorage();
+        this.commonService.redirect('/starter');
+    }
 
 }

@@ -3,151 +3,32 @@
 
     <div class="students">
 
-        <div class="accordion" id="accordionStudents">
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingClassSix">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseClassSix" aria-expanded="false" aria-controls="collapseClassSix">
-                        Class 6
-                    </button>
-                </h2>
-                <div id="collapseClassSix" class="accordion-collapse collapse" aria-labelledby="headingClassSix" data-bs-parent="#accordionStudents">
-                    <div class="accordion-body">
-                        <ng-container *ngFor="let student of students">
-                            <div class="student" *ngIf="student.class === '6'">
-                                {{ student.surname + ' ' + student.firstName }}
-                            </div>      
-                        </ng-container>
+        <div class="accordion" id="accordionStudents" *ngFor="let class of classes">
+            <ng-container *ngIf="class._id">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingClass{{class._id}}">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapseClass' + class._id" aria-expanded="false" [attr.aria-controls]="'collapseClass' + class._id">
+                            Class {{ class._id }}
+                        </button>
+                    </h2>
+                    <div id="collapseClass{{class._id}}" class="accordion-collapse collapse" [attr.aria-labelledby]="'headingClass' + class._id" data-bs-parent="#accordionStudents">
+                        <div class="accordion-body">
+                            <ng-container *ngFor="let student of class.students">
+                                <div class="student {{ student.isShow ? ' isSelected' : '' }}" (click)="student.isShow ? student.isShow = false : student.isShow = true">
+                                    {{ student.surname + ' ' + student.firstName }} 
+                                </div>
+                                <div class="student-details" *ngIf="student.isShow">
+                                    <div class="icons">
+                                        <div class="icon phone"><i class="fa-solid fa-phone"></i></div>
+                                        <div class="icon wa"><i class="fa-brands fa-whatsapp"></i></div>
+                                        <div class="icon fullscreen" (click)="redirect(student)"><i class="fa-solid fa-expand"></i></div>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingClassSeven">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseClassSeven" aria-expanded="false" aria-controls="collapseClassSeven">
-                        Class 7
-                    </button>
-                </h2>
-                <div id="collapseClassSeven" class="accordion-collapse collapse" aria-labelledby="headingClassSeven" data-bs-parent="#accordionStudents">
-                    <div class="accordion-body">
-                        <ng-container *ngFor="let student of students">
-                            <div class="student" *ngIf="student.class === '7'">
-                                {{ student.surname + ' ' + student.firstName }}
-                            </div>      
-                        </ng-container>
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingClassEight">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseClassEight" aria-expanded="false" aria-controls="collapseClassEight">
-                        Class 8
-                    </button>
-                </h2>
-                <div id="collapseClassEight" class="accordion-collapse collapse" aria-labelledby="headingClassEight" data-bs-parent="#accordionStudents">
-                    <div class="accordion-body">
-                        <ng-container *ngFor="let student of students">
-                            <div class="student" *ngIf="student.class === '8'">
-                                {{ student.surname + ' ' + student.firstName }}
-                            </div>      
-                        </ng-container>
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingClassNine">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseClassNine" aria-expanded="false" aria-controls="collapseClassNine">
-                        Class 9
-                    </button>
-                </h2>
-                <div id="collapseClassNine" class="accordion-collapse collapse" aria-labelledby="headingClassNine" data-bs-parent="#accordionStudents">
-                    <div class="accordion-body">
-                        <ng-container *ngFor="let student of students">
-                            <div class="student" *ngIf="student.class === '9'">
-                                {{ student.surname + ' ' + student.firstName }}
-                            </div>      
-                        </ng-container>
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingClassTen">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseClassTen" aria-expanded="false" aria-controls="collapseClassTen">
-                        Class 10
-                    </button>
-                </h2>
-                <div id="collapseClassTen" class="accordion-collapse collapse" aria-labelledby="headingClassTen" data-bs-parent="#accordionStudents">
-                    <div class="accordion-body">
-                        <ng-container *ngFor="let student of students">
-                            <div class="student" *ngIf="student.class === '10'">
-                                {{ student.surname + ' ' + student.firstName }}
-                            </div>      
-                        </ng-container>
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingClassElevenA">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseClassElevenA" aria-expanded="false" aria-controls="collapseClassElevenA">
-                        Class 11-A
-                    </button>
-                </h2>
-                <div id="collapseClassElevenA" class="accordion-collapse collapse" aria-labelledby="headingClassElevenA" data-bs-parent="#accordionStudents">
-                    <div class="accordion-body">
-                        <ng-container *ngFor="let student of students">
-                            <div class="student" *ngIf="student.class === '11-A'">
-                                {{ student.surname + ' ' + student.firstName }}
-                            </div>      
-                        </ng-container>
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingClassElevenB">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseClassElevenB" aria-expanded="false" aria-controls="collapseClassElevenB">
-                        Class 11-B
-                    </button>
-                </h2>
-                <div id="collapseClassElevenB" class="accordion-collapse collapse" aria-labelledby="headingClassElevenB" data-bs-parent="#accordionStudents">
-                    <div class="accordion-body">
-                        <ng-container *ngFor="let student of students">
-                            <div class="student" *ngIf="student.class === '11-B'">
-                                {{ student.surname + ' ' + student.firstName }}
-                            </div>      
-                        </ng-container>
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingClassTwelveA">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseClassTwelveA" aria-expanded="false" aria-controls="collapseClassTwelveA">
-                        Class 12-A
-                    </button>
-                </h2>
-                <div id="collapseClassTwelveA" class="accordion-collapse collapse" aria-labelledby="headingClassTwelveA" data-bs-parent="#accordionStudents">
-                    <div class="accordion-body">
-                        <ng-container *ngFor="let student of students">
-                            <div class="student" *ngIf="student.class === '12-A'">
-                                {{ student.surname + ' ' + student.firstName }}
-                            </div>
-                        </ng-container>
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingClassTwelveB">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseClassTwelveB" aria-expanded="false" aria-controls="collapseClassTwelveB">
-                        Class 12-B
-                    </button>
-                </h2>
-                <div id="collapseClassTwelveB" class="accordion-collapse collapse" aria-labelledby="headingClassTwelveB" data-bs-parent="#accordionStudents">
-                    <div class="accordion-body">
-                        <ng-container *ngFor="let student of students">
-                            <div class="student" *ngIf="student.class === '12-B'">
-                                {{ student.surname + ' ' + student.firstName }}
-                            </div>      
-                        </ng-container>
-                    </div>
-                </div>
-            </div>
+            </ng-container>
         </div>
     </div>
 
